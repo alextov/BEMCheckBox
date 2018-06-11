@@ -41,8 +41,12 @@
 
 
 #pragma mark Actions
-- (IBAction)didDragLineWidthSlider:(UISlider *)slider {
-    self.checkBox.lineWidth = slider.value;
+- (IBAction)didDragBoxLineWidthSlider:(UISlider *)slider {
+    self.checkBox.boxLineWidth = slider.value;
+}
+
+- (IBAction)didDragCheckMarkWidthSlider:(UISlider *)slider {
+    self.checkBox.checkMarkLineWidth = slider.value;
 }
 
 - (IBAction)didDragAnimationSpeedSlider:(UISlider *)slider {

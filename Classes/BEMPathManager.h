@@ -18,9 +18,13 @@
  */
 @property (nonatomic) CGFloat size;
 
-/** The width of the lines on the created paths.
+/** The width of the box line path.
  */
-@property (nonatomic) CGFloat lineWidth;
+@property (nonatomic) CGFloat boxLineWidth;
+
+/** The width of the check mark line path.
+ */
+@property (nonatomic) CGFloat checkMarkLineWidth;
 
 /** The corner radius of the path when the boxType is BEMBoxTypeSquare.
  */

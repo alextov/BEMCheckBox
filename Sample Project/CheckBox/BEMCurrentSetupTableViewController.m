@@ -11,7 +11,8 @@
 @interface BEMCurrentSetupTableViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *onPropertyValueLabel;
-@property (weak, nonatomic) IBOutlet UILabel *lineWidthPropertyValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *boxLineWidthPropertyValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *checkMarkLineWidthPropertyValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *animationDurationPropertyValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hideBoxPropertyValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *onTintColorPropertyLabel;
@@ -30,7 +31,8 @@
     [super viewDidLoad];
     
     self.onPropertyValueLabel.text = self.checkBox.on ? @"YES" : @"NO";
-    self.lineWidthPropertyValueLabel.text = [NSString stringWithFormat:@"%.1f", self.checkBox.lineWidth];
+    self.boxLineWidthPropertyValueLabel.text = [NSString stringWithFormat:@"%.1f", self.checkBox.boxLineWidth];
+    self.checkMarkLineWidthPropertyValueLabel.text = [NSString stringWithFormat:@"%.1f", self.checkBox.checkMarkLineWidth];
     self.animationDurationPropertyValueLabel.text = [NSString stringWithFormat:@"%.2f", self.checkBox.animationDuration];
     self.hideBoxPropertyValueLabel.text = self.checkBox.hideBox ? @"YES" : @"NO";
     

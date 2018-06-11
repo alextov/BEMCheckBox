@@ -41,7 +41,8 @@
     XCTAssert([self.checkBox.onFillColor isEqual:[UIColor clearColor]], @"Default on fill color");
     XCTAssert([self.checkBox.onCheckColor isEqual:[UIColor colorWithRed:0 green:122.0/255.0 blue:255/255 alpha:1]], @"Default on check color");
     XCTAssert([self.checkBox.tintColor isEqual:[UIColor lightGrayColor]], @"Default tint color");
-    XCTAssert(self.checkBox.lineWidth == 2.0, @"Default line width should be 2.0");
+    XCTAssert(self.checkBox.boxLineWidth == 2.0, @"Default box line width should be 2.0");
+    XCTAssert(self.checkBox.checkMarkLineWidth == 2.0, @"Default check mark line width should be 2.0");
     XCTAssert(self.checkBox.animationDuration == 0.5, @"Default animation duration should be 0.5");
     XCTAssert(self.checkBox.onAnimationType == BEMAnimationTypeStroke, @"Default on animation should be of type stroke");
     XCTAssert(self.checkBox.offAnimationType == BEMAnimationTypeStroke, @"Default off animation should be of type stroke");

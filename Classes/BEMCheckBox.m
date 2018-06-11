@@ -71,7 +71,8 @@
     _offFillColor = [UIColor clearColor];
     _onCheckColor = [UIColor colorWithRed:0 green:122.0/255.0 blue:255/255 alpha:1];
     _tintColor = [UIColor lightGrayColor];
-    _lineWidth = 2.0;
+    _boxLineWidth = 2.0;
+    _checkMarkLineWidth = 2.0;
     _cornerRadius = 3.0;
     _animationDuration = 0.5;
     _minimumTouchSize = CGSizeMake(44, 44);
@@ -87,7 +88,8 @@
 
 - (void)initPathManager {
     _pathManager = [BEMPathManager new];
-    _pathManager.lineWidth = _lineWidth;
+    _pathManager.boxLineWidth = _boxLineWidth;
+    _pathManager.checkMarkLineWidth = _checkMarkLineWidth;
     _pathManager.cornerRadius = _cornerRadius;
     _pathManager.boxType = _boxType;
 }
@@ -163,9 +165,15 @@
     [self reload];
 }
 
-- (void)setLineWidth:(CGFloat)lineWidth {
-    _lineWidth = lineWidth;
-    _pathManager.lineWidth = lineWidth;
+- (void)setBoxLineWidth:(CGFloat)boxLineWidth {
+    _boxLineWidth = boxLineWidth;
+    _pathManager.boxLineWidth = _boxLineWidth;
+    [self reload];
+}
+
+- (void)setCheckMarkLineWidth:(CGFloat)checkMarkLineWidth {
+    _checkMarkLineWidth = checkMarkLineWidth;
+    _pathManager.checkMarkLineWidth = _checkMarkLineWidth;
     [self reload];
 }
 
@@ -275,7 +283,7 @@
     self.offBoxLayer.path = [self.pathManager pathForBox].CGPath;
     self.offBoxLayer.fillColor = self.offFillColor.CGColor;
     self.offBoxLayer.strokeColor = self.tintColor.CGColor;
-    self.offBoxLayer.lineWidth = self.lineWidth;
+    self.offBoxLayer.lineWidth = self.boxLineWidth;
     self.offBoxLayer.rasterizationScale = 2.0 * [UIScreen mainScreen].scale;
     self.offBoxLayer.shouldRasterize = YES;
     
@@ -289,7 +297,7 @@
     self.onBoxLayer = [CAShapeLayer layer];
     self.onBoxLayer.frame = self.bounds;
     self.onBoxLayer.path = [self.pathManager pathForBox].CGPath;
-    self.onBoxLayer.lineWidth = self.lineWidth;
+    self.onBoxLayer.lineWidth = self.boxLineWidth;
     self.onBoxLayer.fillColor = self.onFillColor.CGColor;
     self.onBoxLayer.strokeColor = self.onTintColor.CGColor;
     self.onBoxLayer.rasterizationScale = 2.0 * [UIScreen mainScreen].scale;
@@ -305,7 +313,7 @@
     self.checkMarkLayer.frame = self.bounds;
     self.checkMarkLayer.path = [self.pathManager pathForCheckMark].CGPath;
     self.checkMarkLayer.strokeColor = self.onCheckColor.CGColor;
-    self.checkMarkLayer.lineWidth = self.lineWidth;
+    self.checkMarkLayer.lineWidth = self.checkMarkLineWidth;
     self.checkMarkLayer.fillColor = [UIColor clearColor].CGColor;
     self.checkMarkLayer.lineCap = kCALineCapRound;
     self.checkMarkLayer.lineJoin = kCALineJoinRound;
